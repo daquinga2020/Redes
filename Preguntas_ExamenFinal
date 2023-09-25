@@ -1,0 +1,94 @@
+Preguntas sobre IoT-MQTT / Mayo 2021
+
+Pregunta 1 -> Para recibir un mensaje retenido tienes que suscribirte a un topic publicado con el mensaje de retain establecido. (C) Esto se debe a que el publicador cuando envia un mensaje al broker, si tiene Retain_flag=1, el broker debe almacenar el ultimo mensaje que le haya enviado el publicador de ese topic en concreto, un mensaje retenido por topic.
+
+Pregunta 2 -> Cuando te conectas a una sesion con el Clean Flag desactivado el broker almacena toda la información de suscripción y estará disponible cuando te reconectes. (B) Si Clean Flag estuviera activada, el broker hubiera borrado toda la información de la conexión anterior comenzando una nueva conexión totalmente de cero.
+
+Pregunta 3 -> En el modelo de Productor/Consumidor de mqtt, el productor no sabe quien esta suscrito porque no le preocupa, él publica sus mensajes y es el broker quién se encarga de hacerlos llegar a los sucriptores que hubieran.(B)
+
+Pregunta 4 -> El subscriptor que se subscribe al topic /examen/Iot/+ recibe el mensaje "Usuario A" porque "+" indica que solo un campo más puede ser cualquier cosa, por lo tanto se descarta la opción del "Usuario C", el mensaje "Usuario B" no lo recibirá porque se ha publicado con Retain a False, por lo tanto el broker no mantendrá ese mensaje, siendo borrado, y por último, el mensaje "Usuario A" si se publica con Retain, por lo tanto el broker lo enviara en cuanto alguien se publique a ese topic.(A)
+
+Pregunta 5 -> El usuario A no recibirá ningún mensaje del usuario B ya que sus topic no coinciden. El mensaje del usuario C lo recibirá al menos una vez con Qos = 1, dado que la suscripción se realizo con Qos = 2, indicando el máximo Qos que puede entender, no obligando a recibir el mensaje con ese Qos. (D)
+
+##############################################
+
+2022-05-Mayo-Parcial-2-1 -> MQTT
+
+Pregunta 2 -> El suscriptor A recibirá los tres mensajes de los 3 publicadores de los 3 topics distintos con sus respectivos Qos correspondientes (0,0,2), dado que la suscripción se realiza antes de que se publiquen los mensajes, todos los mensajes los puede recibir el suscriptor A. (D)
+
+Pregunta 4 -> El suscriptor A recibirá los mensajes "Usuario B2" y "Usuario C2", dado que "Usuario B1", "Usuario B3" y "Usuario C1" se publican en el mismo topic y al tener "Usuario C2" y "Usuario B2" el retain activo, se envía el ulitmo mensaje recibido de ese topic.
+El suscriptor D recibirá los mismos mensajes que el A. (C)
+
+Pregunta 6 -> El broker 2 publica el mensaje con Qos=2, y el broker 1 lo recibe dado que anteriormente se suscribió con el clean session a false, por lo tanto el broker 2 guardo su información y lo suscribió de nuevo, de esa manera recibe el mensaje y lo mismo ocurre con el suscriptor A, que recibe el mensaje con Qos=1.(A)
+
+Pregunta 8 -> Si se quiere que el mensaje llegue seguro y llegue únicamente una vez, se debe suscribir con Qos=2, y la tecnología que debe usar es SigFox ya que la wifi no dispone de tal rango de alcance(D)
+
+##############################################
+
+Preguntas sobre WIFI / Abril 2021
+
+Pregunta 1 -> El mensaje se ha capturado mientras se transmitía desde una estación a través de un AP destinada a un DS. (A)
+
+Pregunta 2 -> (B) Al tratarse de dos estaciones, ninguno responderá con un probe response, ya que se encuentran buscando un AP, (además de que se encuentran buscando en canales distintos.)
+
+Pregunta 3 -> (D) -> es la A.
+
+Pregunta 4 -> (D) Porque "To DS: 0 From DS: 0", lo que signfica que las estaciones se comunican directamente entre ellas, es una red ad-hoc.
+
+##############################################
+
+2022-05-Mayo-Parcial-2-1 -> WIFI
+
+Pregunta 5 -> (A) Es el mensaje 4 porque en el protocolo 802.11 se deben asentir los mensajes por parte del receptor ya que se especifica a él en concreto, por ello es el primer ACK justo después de que se le haya enviado un echo reply. -> Es la D, el mensaje 6.
+
+Pregunta 7 -> El canal 6 porque no se sobrepone a ningún canal de los que se están usando. (D)
+
+Pregunta 11 -> (C)
+
+##############################################
+
+Preguntas sobre Routing / Abril 2021
+
+Pregunta 1 -> Es la (B, yo tenia la D).
+
+Pregunta 2 -> A /D(1,A) B(3,A)/ H(7,B) F(2,D)/ E(4,F) C(5,F)
+Es la (B) -> (C).
+
+Pregunta 3 -> Es la (C). No puede asegurarse de que se haya capturado en la interfaz de 10.0.0.1 porque 10.0.0.2 tmbién pudo haberlo recibido ya que ese nodo sí que es adyacente ya que lo recibe directamente de ese nodo.
+
+Pregunta 4 -> Es la (D). 10.0.0.3 se va a llegar a través de 6 tal como muestra el proceso batmand.
+
+Pregunta 5 -> Es la (A) -> (B)
+
+##############################################
+
+2022-05-Mayo-Parcial-2-1 -> Batmand
+
+Pregunta 1 -> (A)
+
+Pregunta 3 -> (B) El originador debería ser 10.0.0.7
+
+Pregunta 9 -> (B)
+
+Pregunta 10 -> (A) -> Es la C, porque sta1 se lo envía a sta5, pero, tal como se lo envia puede ser de sta2 o sta3, asi lo recibe sta1 y asi lo reenvia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

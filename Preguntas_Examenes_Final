@@ -1,0 +1,38 @@
+20022-05-Mayo-Parcial-2
+
+Pregunta 2 -> Clean Session Flag: la sesion no es persistente, se comienza de cero en cada nueva conexion. El flag de retain -> si esta activo se guarda un mensaje por cada topic, de esta manera si alguien se suscribe a ese topic recibe ese mensaje. El topic de la suscripción se corresponde con todos los topic de los 3 publish debido al "#". Cuando te suscribes con un QoS cualquiera significa el máximo QoS que puede aceptar de un publish, no implica que tengan que responderle con el mismo QoS. Es la solución D.
+
+Pregunta 4 -> Solo hay un mensaje de retain por topic, si varios publicadores publican en el mismo topic con el retain activo, unicamente llegará el mensaje del último publicador con el retain activo. Es la C.
+
+Pregunta 6 -> Va a llegar el mensaje con el QoS mas alto con el que se han suscrito.
+
+
+*Con el Clean Session activado, el broker se olvida de todas las suscripciones que haya hecho ese cliente, implicando que si el retain está activo, llegara ese mensaje retain, por otro lado, si el clean session está desactivado no llegarian los mensajes de retain si estuviera activado dado que el cliente no se ha desuscrito. *
+
+Pregunta 8 -> Es la D. La tecnologia es Sigfox, wifi no tiene ese rango y QoS 2 para que nos llegue el mensaje.
+
+Pregunta 5 -> El campo Logical-Link Control sirve para saber el tipo de protocolo de la cabecera siguiente. En el campo IEEE 802.11 del mensaje 4 ACK el campo Receiver address es 00:00:00_00:00:01, por lo tanto se debe buscar el primer mensaje (mensaje 2) con Transmitter address con la misma dirección, siendo este el paquete que asiente el mensaje 4. El paquete 3 está asentido por el paquete 6.
+
+Pregunta 7 -> Mirar en el campo 802.11 radio information los canales en los que se estan enviando las tramas balizas. En la captura se puede observar que los vecinos se encontraban usando los canales 1 y 11, por lo tanto, empleando el canal 6 es la mejor opción ya que no se solapa con ningún canal(ejemplo en las diapositivas de teoria de wifi).
+
+Pregunta 11 -> Es la C, porque la información de las direcciones, sobretodo, BSS id y station address, nos dice que el mensaje va de AP(access point) a una estación. Se puede comprobar con la tabla de teoría.
+
+Pregunta 1 -> La a es verdadera puede acceder a través del 8.
+La b es falsa ya que en la ultima columna de su fila tiene un 0.
+La c es falsa porque ha recibido menos de 227.
+La d es falsa ya que usa directamente 10.0.0.4 y no un nodo intermedio
+
+Pregunta 3 -> El campo Received from indica de que nodo IP recibió el mensaje. En el mensaje de la captura se puede observar que Received from es 10.0.0.2, y Originator es 10.0.0.7, con Src en IPv4 10.0.0.5, significando esto que el nodo IP de dirección 10.0.0.5 recibió del nodo IP 10.0.0.2 un mensaje cuyo origen principal es 10.0.0.7.
+
+Pregunta 9 -> Coste total -> coste a A,B o C + coste de A to G, de B to G, o C to G.
+
+Pregunta 10 -> Received from de sta2 o sta3, orifinante sta6.
+
+
+
+
+
+
+
+
+

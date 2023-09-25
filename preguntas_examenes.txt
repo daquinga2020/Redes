@@ -1,0 +1,80 @@
+Preguntas de DHCP - Marzo 2021
+
+1. Es la C. El paquete posee un campo de lista de parámetros requeridos, es decir, se encuentra buscando un servidor que le proporcione una IP. Trata de localizar el servidor ya que envia un mensaje en broadcast y no posee ninguna IP previa la cual tener que renovar.
+
+2. Es la B. El paquete posee un campo DHCP Server Identifier el cual posee una IP que identifica al servidor DHCP al cual está solicitando la IP.
+
+3. Es la A. Se realiza una request a un servidor en concreto para realizar una renovación de una concesión. Si hubiera sido una peticion inicial o un rebinding la dirección destino sería la de broadcast.
+
+4. Es la C. Ya que la asignación de la IP ya se realizo previamente, y por lo tanto, el servidor ya comprobó si dicha IP se encontraba disponible o no. Los mensajes ARP son para comprobar si dicha IP sí se encuentra en el cliente al que se la ofrecimos.
+
+#################################################################
+Preguntas de HTTP - Marzo 2023
+#################################################################
+
+La peticion que realiza el navegador recibe un OK, en él el campo cache-control posee el valor public, must-revalidate y max-age, quiere decir que se puede almacenar en cualquier cache, no se puede enviar sin revalidarla previamente y un tiempo de vigencia máximo de 100. Además posee el campo de revalidacion fuerte "Etag".
+
+4. Es la A. El recurso tiene un limite máximo de 40 (max-age), y en ese momento, el recurso ya lo poseia el servidor en su caché con un age de 32, por lo que despues de los 20 segundos, el recurso ya ha sido caducado, por lo que el servidor al recibir esa nueva petición de ese mismo recurso debe obetenerla de cero nuevamente.
+
+5. Es la B. PREGUNTAR POR QUE ES ESA.
+
+6. Es la A. Hay tres campos set-cookie con el dominio de pc3.emp2.net, un subgrupo con el path "/compras", un grupo con el path "/tienda/compras" y un global con el path "/". Todos los grupos tienen su fecha de expiración, cuando se realiza la peticion, el subgrupo "/compras" ya había caducado y por lo tanto habia sido eliminado, mientras que los otros dos grupos siguen vigentes. Si el cliente hubiera solicitado el recurso con el path "/tienda/compras" o "/tienda/compras/deportes", hubiera envíado únicamente esa cookie ya que son más especificas y encajan más con el path, sin embargo si se realiza la peticion con el path "/compras" es necesario un path más general y por ello se envia la global. 
+
+7. Es la C. El campo age es 32, y la limite de tiempo del recurso es 100, es decir, no ha caducado, por lo que no necesita revalidarlo nuevamente con el servidor ni perdirselo.
+
+8. Es la D. Faltan 68 segundos para que caduque dicho contenido ya que el campo age es de 32, y así lo obtiene el cliente.
+
+
+#################################################################
+Preguntas de Calidad de servicio - Mayo 2021
+#################################################################
+
+1. Es la B -> (porque es la B y no la A). En el filtro creado en r1, se permite el envio de datos 1M y un cubo de 10k, por lo tanto en 10s si envia a 1Mbits/seg, le llegarian 1Mbit. En el filtro creado en r2, se permite el envio de datos a 500k y un cubo de 10k al tráfico enviado por pc2, y a pc5 no le afecta dicho filtro. A r2 llegará tráfico de pc2 y pc5, y al no haber filtro para pc5, su tráfio pasa a 1M mientras que el de pc2 pasa a 500k. Para hallar los Mbytes que le llegan hay que AnchoBanda*Nseg=MBits/8=Mbytes.
+
+2. Es la A. Primero sale todo el tráfico enviado por pc1, y hasta que no haya salido todo, el tráfico de pc5 se queda a la espera, pudiendo enviar los paquetes que pueda antes de los 20 segundos.
+
+3. Es la B, la suma de los distintos anchos de banda es de 1Mbits/seg, por lo tanto el tráfico de pc2 y pc5 se vio reducido y por ello es necesario que llegue tráfico después de los 10 segundos, ya que se ha encolado el tráfico de ambos, y proceden a salir.
+
+4. Es la B-> porque esa y no la A.
+
+5. Es la D -> porque esa y no la D.Se observa en IPv4 en un campo dentro del mensaje.
+
+Parcial 1-Marzo 2022-03 
+
+5. Es la A. El servidor realiza una comprobacion de la direccion que va a asignar a la maquina que lo solicita despues del discover y antes del offer, y la direccion se forma mediante la direccion ethernet del cliente ya que es la única informacion que tiene del cliente. 
+
+6. Es la A.
+
+7. Es la D.
+
+8. Es la C.
+
+9. Es la A.
+
+10. Es la .
+
+11. Es la A. -> porque es la B
+
+12. Es la B.
+
+Parcial 1-Mayo 2022-05
+
+1. Es la B. Pc3 empleara el sobrante que no usan pc1 y pc2, y por lo tanto, realizando la suma de 500kbps y 700kbps(limitacion a pc4), obtenemos 1Mbps en los 10 segundos, posteriormente, llegarían los 100kbps faltantes.
+
+2. Es la D. Si tardo 1.5 Mbps en 10 segundos, entonces para enviar los 3Mbps restantes se necesitará el doble de tiempo, 20 segundos. En total 30s.
+
+3. Es la B. No hay captura para comprobarlo se emplea el descarte.
+
+5. Es la A. Al tener TBF configurado en 2Mbps y una latencia 90s puede alcanzar a enviar el tráfico de las dos máquinas con más prioridad.
+
+6. Es la D -> porque es la A. Deberia tener el campo 0x0c, sin embargo no hay ninguna opcion.
+
+8. Es la D -> porque es la A.
+
+12. 
+
+
+
+
+
+

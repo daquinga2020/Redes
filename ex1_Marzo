@@ -1,0 +1,69 @@
+Parcial 1 Marzo
+
+Pregunta 5 -> La A, porque el servidor realiza una comprobacion ARP de la direccion IP que va a asignar. Para observar la información de la que dispone el servidor para asignar la dirección dinámicamente, se observa el mensaje DHCP Discover. En el paquete podemos comprobar que se le proporciona una direccion ethernet la cual emplea para asignarle una dirección IP.
+
+Pregunta 6 -> La A. No es renovacion dado que no hay ningún mensaje discover y la máquina ya posee una dirección IP. Al principio de la captura se muestra que el servidor no está escuchando en el puerto en el que la máquina realizaba la peticion de renovacion. Posteriormente la máquina comienza a realizar peticiones de renovacion a cualquier máquina mediante el broadcast, hasta que finalmente obtiene un ACK del mismo servidor que le habia otorgado la IP previamente.
+
+Pregunta 7 -> La D. El cliente realiza un discover y entre la lista de parámetros requeridos solicita un DNS (Domain Name Server), parámetro el cual le ofrece el segundo servidor que le hace la oferta.
+
+Pregunta 8 -> La C.
+rate=400 kbps para el tráfico desde pc1 con ceil=2 Mbps.
+rate=600 kbps para el tráfico desde pc2 con ceil=2 Mbps.
+rate=300 kbps para el tráfico desde pc3 con ceil=2 Mbps.
+rate=700 kbps para el tráfico desde pc4 con ceil=2 Mbps.
+
+Comprobar que todos los rates como la linea anterior, suma menos o igual del total que es el ceil. Si es más se encolará y se enviará despues de los 10s del iperf. Necesario para ver si está bien configurado.
+
+desde pc1 dirigido a pc5 a 400 kbps-> pasa perfectamente
+desde pc2 dirigido a pc5 a 500 kbps-> pose 100 de holgura
+desde pc3 dirigido a pc6 a 300 kbps-> pasa perfectamente
+desde pc4 dirigido a pc6 a 800 kbps-> pasa perfectamente ya que hay 100 de holgura, esto quiere decir que emplea esos 100 para que lleguen todos perfectamente.
+Ceil -> lo maximo a lo que puedes ir.
+
+Pregunta 9 -> Es la A. Al tener una latencia tan pequeña, el tráfico que se encola se descarta antes de que terminen los 10 segundos.
+
+Pregunta 11 -> Es la B. 
+
+3-Preguntas-qos
+
+Pregunta 2 -> En TBF y TBF con prioridadd hay que fijarse en la latencia de configuracion. Al tener una latencia muy grande, 20s, se va a encolar el tráfico porque es poco más de lo que se permite enviar. En los primeros 10s debe haber 700k rojo y 0k verde. El tráfico encolado que queda son los 300kbps de pc1 que es en total 3000kb y los 500kbps de pc5 que es en total 5000kb. Al tener mayor prioridad pc1, primero sale su tráfico y posteriormente sale el tráfico de pc5.
+
+Private en cache http -> solo en navegadores, no en proxys (caches publicas).
+Revalidacion fuerte -> Etag.
+
+No tener age en un mensaje enviado por un proxy, significa que tiene age 0 y esta "fresco el recurso".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
